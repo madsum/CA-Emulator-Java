@@ -1,0 +1,312 @@
+{
+	"info": {
+		"_postman_id": "43c5e260-fed5-453f-a1b5-4b86710a82b5",
+		"name": "ebl-conformence-tool",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2551975"
+	},
+	"item": [
+		{
+			"name": "get certificate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/ebl/getCertificate",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"ebl",
+						"getCertificate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "is certificate signed",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/ebl/isClientCertificateSigned",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"ebl",
+						"isClientCertificateSigned"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "make certificate with body signed or unsinged",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"commonName\": \"example.com\",\r\n    \"organizationalUnit\": \"IT\",\r\n    \"organization\": \"Example Inc.\",\r\n    \"locality\": \"San Francisco\",\r\n    \"state\": \"California\",\r\n    \"country\": \"US\",\r\n    \"startDate\": \"2022-01-01T00:00:00.000Z\",\r\n    \"endDate\": \"2023-01-01T00:00:00.000Z\",\r\n    \"publicKey\": \"-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsh0vuDi15PkeIDB8WqnLekzO6F1y4ZvHMTNYAubvTUOvylEoZndDg5/KiXA6CuWpyhmKeYTBEtzjsTzh+CeB8P5IawntgPH1EnfUYpP7yhCc5W5cDNud4Z5lCB42xGNBIwWbJR8QTtEABTIrnqBaA5/jkdlwyMI/8w8lusTmCEhf/BIlM2Xcbfety+Xmuh1Bv/OTCt70BvO+LsOCkq7cyUg0m3xN9+u6uyL+P848cri57o2dpk75ChWrtnwBrwy8Xq20cua9tXwR/KE2Jq0xAbCqVLMtFNlla9JK5rMuQBQp5LFEh3y4wIjTscwX5tgY84MoWpyoVuVtW0vkFSpFnwIDAQAB-----END PUBLIC KEY-----\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9001/ebl/signed/makeClientCertificate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"ebl",
+						"signed",
+						"makeClientCertificate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all endpoints",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/actuator/mappings",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"actuator",
+						"mappings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "is cert valid",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9001/isValid",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"isValid"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verify distribution list cert",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9001/ebl/verifyDistributionList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"ebl",
+						"verifyDistributionList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all distribution list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9001/ebl/allDistributionList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"ebl",
+						"allDistributionList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get certificate file",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9001/ebl/allDistributionList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"ebl",
+						"allDistributionList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add distribution list",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"crlUri\": \"http://www.certificadodigital.com.br/repositorio/lcr/serasarfbv2.crl\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9001/ebl/addDistributionList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"ebl",
+						"addDistributionList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "revoke certificate",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/dev/Downloads/dcsa2.cert"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/ebl/revokeSignature",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"ebl",
+						"revokeSignature"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "removie distribution list",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"crlUri\": \"http://www.certificadodigital.com.br/repositorio/lcr/serasarfbv2.crl\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/ebl/removeDistributionList",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"ebl",
+						"removeDistributionList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "revoke signature from singed certificate",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/dev/Downloads/dcsa_certificate (3).cert"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/ebl/revokeSignature",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"ebl",
+						"revokeSignature"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:9001",
+			"type": "string"
+		}
+	]
+}
